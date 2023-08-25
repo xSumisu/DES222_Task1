@@ -1,0 +1,176 @@
+/* 
+Color pallete. This section defines variables for the color pallete,
+so that we can refer to particular colors by name instead of hexadecimal values.
+This is applied to the 'root' psuedo-element, which just means that these color
+variables are available to be used anywhere in our html document
+*/
+:root {
+    --color1: #A87362;
+    --color2: #BBADA0;
+    --color3: #f4decb;
+    --color4: #fabc90;
+    --color5: #0B1D51;
+    --white-font: #FFFFFF;
+    --black-font: #000000;
+}
+/* background colour */
+body {
+  background-color: var(--color1);
+}
+/* Defines the main container size, we are limiting to 1140px max and centring in the viewport */
+.main-container {
+    max-width: 72em;
+    margin: 0 auto;
+    font-family: Itim;
+    color: var(--black-font);
+}
+
+/* Here we define the aspects of style of our elements other than their grid layout */
+.banner {
+    background-color: var(--color4);
+    min-height: 8em;
+    padding: 0.5em;
+}
+
+.banner-title {
+    font-size: 3em;
+}
+
+.banner-subtitle {
+    font-size: 2em;
+    padding-left: 0.125rem;
+    padding-top: 0.25rem;
+}
+
+.gaming-space-card {
+    min-height: 22em;
+    background-color: var(--color3);
+    display: flex;
+    flex-direction: column;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.gaming-space-card {
+    max-width: 100%;
+}
+
+.gaming-space-description {
+    padding: 1em;
+}
+/*
+.our-clients-title {
+    background-color: var(--color2);
+    color: var(--color4);
+    font-size: 3em;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 1em;
+}
+
+.client-icon {
+    width: 100%;
+} 
+*/
+/* now we create names for the grid areas for specific elements */
+#banner {
+    grid-area: bn1;
+}
+
+#gamingSpaceCard1 {
+    grid-area: tm1;
+}
+
+#gamingSpaceCard2 {
+    grid-area: tm2;
+}
+
+#gamingSpaceCard3 {
+    grid-area: tm3;
+}
+
+#gamingSpaceCard4 {
+    grid-area: tm4;
+}
+
+#gamingSpaceCard5 {
+    grid-area: tm5;
+}
+
+#gamingSpaceCard6 {
+    grid-area: tm6;
+}
+
+#gamingSpaceCard7 {
+    grid-area: tm7;
+}
+
+#gamingSpaceCard8 {
+    grid-area: tm8;
+}
+
+#gamingSpaceCard9 {
+    grid-area: tm9;
+}
+/* Use a flexible layout grid */
+.main-container {
+    display: grid;
+    column-gap: 1em;
+}
+  
+/* 
+Responsive Layout breakpoints. We start 'mobile-first' i.e. we define how the layout should look
+for the smallest screen sizes. In this case we want a single column that spans the main container.
+Because this CSS definition comes first, it will apply by default. Then we override it below with 
+media queries for progressively bigger screen widths
+*/
+.main-container {
+    grid-template:
+        "bn1 bn1 bn1 bn1" minmax(8em, auto)
+        " .   .   .   . " minmax(2em, auto)
+        "tm1 tm1 tm1 tm1" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm2 tm2 tm2 tm2" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm3 tm3 tm3 tm3" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm4 tm4 tm4 tm4" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm5 tm5 tm5 tm5" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm6 tm6 tm6 tm6" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm7 tm7 tm7 tm7" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        "tm8 tm8 tm8 tm8" minmax(22em, auto)
+        " .   .   .   . " minmax(3em, auto)
+        
+}
+    
+@media (min-width: 50em) {
+       .main-container {
+        grid-template:
+        "bn1 bn1 bn1 bn1 bn1 bn1 bn1 bn1" minmax(8em, auto)
+        " .   .   .   .   .   .   .   . " minmax(2em, auto)
+        "tm1 tm1 tm1 tm1 tm2 tm2 tm2 tm2" minmax(22em, auto)
+        " .   .   .   .   .   .   .   . " minmax(2em, auto)
+        "tm3 tm3 tm3 tm3 tm4 tm4 tm4 tm4" minmax(22em, auto)
+        " .   .   .   .   .   .   .   . " minmax(2em, auto)
+        "tm5 tm5 tm5 tm5 tm6 tm6 tm6 tm6" minmax(22em, auto)
+        " .   .   .   .   .   .   .   . " minmax(2em, auto)
+        "tm7 tm7 tm7 tm7 tm8 tm8 tm8 tm8" minmax(22em, auto)
+        " .   .   .   .   .   .   .   . " minmax(2em, auto)
+        " .  tm9 tm9 tm9  .   .   .   . " minmax(22em, auto)
+    }
+}
+
+@media (min-width: 75em) {
+    .main-container {
+        grid-template:
+        "bn1 bn1 bn1 bn1 bn1 bn1 bn1 bn1 bn1 bn1 bn1 bn1" minmax(8em, auto)
+        " .   .   .   .   .   .   .   .   .   .   .   . " minmax(0.25em, auto)
+        " .  tm1 tm1 tm2 tm2 tm3 tm3 tm4 tm4 tm5 tm5  . " minmax(22em, auto)
+        " .   .   .   .   .   .   .   .   .   .   .   . " minmax(1em, auto)
+        " .  tm6 tm6 tm7 tm7 tm8 tm8 tm9 tm9  .   .   . " minmax(4em, auto)
+    }
+}
